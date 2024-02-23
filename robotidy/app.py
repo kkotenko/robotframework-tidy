@@ -58,7 +58,7 @@ class Robotidy:
                     self.output_diff(model_path, old_model, new_model)
                     changed_files += 1
             except DataError as err:
-                click.echo(f"Failed to decode {source} with an error: {err}\nSkipping file")
+                click.echo(f"Failed to decode {source} with an error: {err}\nSkipping file", err=True)
         return self.formatting_result(all_files, changed_files, stdin)
 
     def formatting_result(self, all_files: int, changed_files: int, stdin: bool):
